@@ -46,13 +46,13 @@ public class AvatarView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-canvas.drawOval(PADDING, PADDING, PADDING + WIDTH, PADDING + WIDTH, paint);
-int saved = canvas.saveLayer(savedArea, paint);
-canvas.drawOval(PADDING + EDGE_WIDTH, PADDING + EDGE_WIDTH, PADDING + WIDTH - EDGE_WIDTH, PADDING + WIDTH - EDGE_WIDTH, paint);
-paint.setXfermode(xfermode);
-canvas.drawBitmap(bitmap, PADDING, PADDING, paint);
-paint.setXfermode(null);
-canvas.restoreToCount(saved);
+        canvas.drawOval(PADDING, PADDING, PADDING + WIDTH, PADDING + WIDTH, paint);
+        int saved = canvas.saveLayer(savedArea, paint);
+        canvas.drawOval(PADDING + EDGE_WIDTH, PADDING + EDGE_WIDTH, PADDING + WIDTH - EDGE_WIDTH, PADDING + WIDTH - EDGE_WIDTH, paint);
+        paint.setXfermode(xfermode);
+        canvas.drawBitmap(bitmap, PADDING, PADDING, paint);
+        paint.setXfermode(null);
+        canvas.restoreToCount(saved);
     }
 
     Bitmap getAvatar(int width) {
