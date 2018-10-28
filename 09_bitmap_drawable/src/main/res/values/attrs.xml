@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MaterialEditText" >
+        <attr name="useFloatingLabel" format="boolean" />
+        <attr name="rengwuxian" format="boolean" />
+    </declare-styleable>
+</resources>
