@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 
 public class MaterialEditText extends android.support.v7.widget.AppCompatEditText {
     private static final String TAG = MaterialEditText.class.getSimpleName();
@@ -36,8 +35,8 @@ public class MaterialEditText extends android.support.v7.widget.AppCompatEditTex
     }
 
     void init(Context context, AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, new int[]{R.attr.rengwuxian, R.attr.useFloatingLabel});
-        useFloatingLabel = typedArray.getBoolean(1, true);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MaterialEditText);
+        useFloatingLabel = typedArray.getBoolean(R.styleable.MaterialEditText_useFloatingLabel, true);
         typedArray.recycle();
 
         paint.setTextSize(TEXT_SIZE);
