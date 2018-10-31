@@ -1,1 +1,1 @@
-include ':06-drawing', ':07_change_camera_animation', ':08_animation', ':09_bitmap_drawable'
+include ':06-drawing', ':07_change_camera_animation', ':08_animation', ':09_bitmap_drawable', ':10_layout'
