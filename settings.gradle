@@ -1,1 +1,1 @@
-include ':06-drawing', ':07_change_camera_animation', ':08_animation', ':09_bitmap_drawable', ':10_layout', ':11_touch', ':12_scalable'
+include ':06-drawing', ':07_change_camera_animation', ':08_animation', ':09_bitmap_drawable', ':10_layout', ':11_touch', ':12_scalable', ':13_multi_touch'
