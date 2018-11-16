@@ -1,10 +1,10 @@
 package com.hencoder.a10_layout.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
-public class SquareImageView extends android.support.v7.widget.AppCompatImageView {
+public class SquareImageView extends androidx.appcompat.widget.AppCompatImageView {
     public SquareImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }

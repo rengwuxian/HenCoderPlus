@@ -1,11 +1,9 @@
 package com.hencoder.a10_layout.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-
-import com.hencoder.a10_layout.Utils;
 
 public class OneHundredView extends View {
     public OneHundredView(Context context, @Nullable AttributeSet attrs) {

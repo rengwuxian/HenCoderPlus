@@ -24,7 +24,6 @@
 
         <com.hencoder.a09_bitmap_drawable.MaterialEditText
             android:id="@+id/editText"
-            app:useFloatingLabel="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username" />

@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 
-public class MaterialEditText extends android.support.v7.widget.AppCompatEditText {
+public class MaterialEditText extends androidx.appcompat.widget.AppCompatEditText {
     private static final String TAG = MaterialEditText.class.getSimpleName();
 
     private static final float TEXT_SIZE = Utils.dpToPixel(12);

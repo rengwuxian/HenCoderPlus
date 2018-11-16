@@ -4,14 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
 import com.hencoder.a10_layout.Utils;
 
 import java.util.Random;
 
-public class ColoredTextView extends android.support.v7.widget.AppCompatTextView {
+public class ColoredTextView extends androidx.appcompat.widget.AppCompatTextView {
     private static final int[] COLORS = {
             Color.parseColor("#E91E63"),
             Color.parseColor("#673AB7"),

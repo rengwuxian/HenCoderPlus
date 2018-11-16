@@ -4,7 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.hencoder.a08_animation.view.ProvinceUtil;
 import com.hencoder.a08_animation.view.ProvinceView;
