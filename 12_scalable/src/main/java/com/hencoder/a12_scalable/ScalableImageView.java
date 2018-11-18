@@ -173,6 +173,13 @@ public class ScalableImageView extends View {
         }
     }
 
+    private void fixOffsets() {
+        offsetX = Math.min(offsetX, (bitmap.getWidth() * bigScale - getWidth()) / 2);
+        offsetX = Math.max(offsetX, - (bitmap.getWidth() * bigScale - getWidth()) / 2);
+        offsetY = Math.min(offsetY, (bitmap.getHeight() * bigScale - getHeight()) / 2);
+        offsetY = Math.max(offsetY, - (bitmap.getHeight() * bigScale - getHeight()) / 2);
+    }
+
     class HenFlingRunner implements Runnable {
 
         @Override
@@ -186,31 +193,12 @@ public class ScalableImageView extends View {
         }
     }
 
-    private void fixOffsets() {
-        offsetX = Math.min(offsetX, (bitmap.getWidth() * bigScale - getWidth()) / 2);
-        offsetX = Math.max(offsetX, - (bitmap.getWidth() * bigScale - getWidth()) / 2);
-        offsetY = Math.min(offsetY, (bitmap.getHeight() * bigScale - getHeight()) / 2);
-        offsetY = Math.max(offsetY, - (bitmap.getHeight() * bigScale - getHeight()) / 2);
-    }
-
     class HenScaleListener implements ScaleGestureDetector.OnScaleGestureListener {
         float initialScale;
-        float axisX;
-        float axisY;
-
-        private void fixScale(float x, float y, float scale) {
-            offsetX = (x - getWidth() / 2f) - (x - getWidth() / 2) * scale / initialScale;
-            offsetY = (x - getHeight() / 2f) - (x - getHeight() / 2) * scale / initialScale;
-//        offsetX = Math.min(offsetX, (bitmap.getWidth() * scale - getWidth()) / 2);
-//        offsetX = Math.max(offsetX, - (bitmap.getWidth() * scale - getWidth()) / 2);
-//        offsetY = Math.min(offsetY, (bitmap.getHeight() * scale - getHeight()) / 2);
-//        offsetY = Math.max(offsetY, - (bitmap.getHeight() * scale - getHeight()) / 2);
-        }
 
         @Override
         public boolean onScale(ScaleGestureDetector detector) {
             currentScale = initialScale * detector.getScaleFactor();
-            fixScale(axisX,  axisY, bigScale);
             invalidate();
             return false;
         }
@@ -218,8 +206,6 @@ public class ScalableImageView extends View {
         @Override
         public boolean onScaleBegin(ScaleGestureDetector detector) {
             initialScale = currentScale;
-            axisX = detector.getFocusX();
-            axisY = detector.getFocusY();
             return true;
         }
 
