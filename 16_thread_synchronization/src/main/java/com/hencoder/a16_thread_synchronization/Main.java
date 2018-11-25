@@ -20,9 +20,6 @@ public class Main {
 //        runSynchronized2Demo();
 //        runSynchronized3Demo();
 //        runReadWriteLockDemo();
-//        runThreadInteractionDemo();
-//        runWaitDemo();
-//        runCustomizableThreadDemo();
     }
 
     /**
@@ -126,18 +123,5 @@ public class Main {
 
     static void runReadWriteLockDemo() {
         new ReadWriteLockDemo().runTest();
-    }
-
-    static void runThreadInteractionDemo() {
-        new ThreadInteractionDemo().runTest();
-    }
-
-    static void runWaitDemo() {
-        new WaitDemo().runTest();
-
-    }
-
-    static void runCustomizableThreadDemo() {
-        new CustomizableThreadDemo().runTest();
     }
 }
