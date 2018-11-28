@@ -1,6 +1,4 @@
-package com.hencoder.javatests;
-
-import com.sun.org.apache.xpath.internal.functions.FuncFalse;
+package com.hencoder.a17_thread_interaction;
 
 public class ThreadInteractionDemo implements TestDemo {
 
@@ -17,16 +15,16 @@ public class ThreadInteractionDemo implements TestDemo {
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
                         // 收尾
                         return;
                     }
+                    System.out.println("number: " + i);
                 }
             }
         };
         thread.start();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

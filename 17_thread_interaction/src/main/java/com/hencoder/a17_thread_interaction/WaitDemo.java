@@ -1,10 +1,10 @@
-package com.hencoder.javatests;
+package com.hencoder.a17_thread_interaction;
 
 public class WaitDemo implements TestDemo {
     private String sharedString;
 
     private synchronized void initString() {
-        sharedString = "Rengwuxian!";
+        sharedString = "rengwuxian";
         notifyAll();
     }
 
@@ -21,7 +21,7 @@ public class WaitDemo implements TestDemo {
 
     @Override
     public void runTest() {
-        Thread thread = new Thread() {
+        final Thread thread1 = new Thread() {
             @Override
             public void run() {
                 try {
@@ -32,19 +32,19 @@ public class WaitDemo implements TestDemo {
                 printString();
             }
         };
-        thread.start();
-        Thread thread1 = new Thread() {
+        thread1.start();
+        Thread thread2 = new Thread() {
             @Override
             public void run() {
+                Thread.yield();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 initString();
-                Thread.yield();
             }
         };
-        thread1.start();
+        thread2.start();
     }
 }

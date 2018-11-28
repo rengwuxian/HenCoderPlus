@@ -1,4 +1,4 @@
-package com.hencoder.javatests;
+package com.hencoder.a17_thread_interaction;
 
 public class CustomizableThreadDemo implements TestDemo {
     private CustomizableThread thread = new CustomizableThread();
@@ -14,31 +14,31 @@ public class CustomizableThreadDemo implements TestDemo {
         thread.looper.setTask(new Runnable() {
             @Override
             public void run() {
-                System.out.println("I'm a new task!!");
+                System.out.println("hahahahaha");
             }
         });
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         thread.looper.quit();
     }
 
     class CustomizableThread extends Thread {
         Looper looper = new Looper();
-
-        @Override
-        public void run() {
-            looper.loop();
-        }
     }
 
     class Looper {
-        private boolean quit;
         private Runnable task;
+        private boolean quit;
 
-        void quit() {
-            quit = true;
+        synchronized void setTask(Runnable task) {
+            this.task = task;
         }
 
-        synchronized void setTask(Runnable newTask) {
-            task = newTask;
+        synchronized void quit() {
+            quit = true;
         }
 
         public void loop() {
