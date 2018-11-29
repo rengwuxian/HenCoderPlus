@@ -1,9 +1,8 @@
 apply plugin: 'com.android.application'
+apply plugin: 'hencoder-mainfest-mender'
 
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         applicationId "com.hencoder.a15_drag_nestedscroll"
