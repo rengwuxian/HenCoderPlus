@@ -27,6 +27,7 @@
     <LinearLayout
         android:id="@+id/collectorLayout"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:background="#78909C"/>
