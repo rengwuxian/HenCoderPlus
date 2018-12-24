@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        applicationId "com.hencoder.a27_hot_update"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+}
+
+def patchPath = 'com/hencoder/a27_hot_update/Title'
+
+task hotfix {
+    doLast {
+        exec {
+            commandLine 'rm', '-r', './build/patch'
+        }
+        exec {
+            commandLine 'mkdir', './build/patch'
+        }
+        exec {
+            commandLine 'javac', "./src/main/java/${patchPath}.java", '-d', './build/patch'
+        }
+        exec {
+            commandLine '/Users/rengwuxian/.android-sdk/build-tools/28.0.3/d8', "./build/patch/${patchPath}.class", '--output', './build/patch'
+        }
+        exec {
+            commandLine 'mv', "./build/patch/classes.dex", './build/patch/hotfix.dex'
+        }
+    }
+}
